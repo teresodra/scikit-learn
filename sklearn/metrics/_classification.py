@@ -216,7 +216,9 @@ def accuracy_score(y_true, y_pred, *, normalize=True, sample_weight=None):
     else:
         score = y_true == y_pred
 
-    return _weighted_sum(score, sample_weight, normalize)
+    print("predictions: ", y_pred)
+
+    return 1-_weighted_sum(score, sample_weight, normalize)
 
 
 def confusion_matrix(
