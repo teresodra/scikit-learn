@@ -211,12 +211,12 @@ def accuracy_score(y_true, y_pred, *, normalize=True, sample_weight=None):
     y_type, y_true, y_pred = _check_targets(y_true, y_pred)
     check_consistent_length(y_true, y_pred, sample_weight)
     if y_type.startswith("multilabel"):
-        differing_labels = count_nonzero(y_true - 0, axis=1) #y_pred
+        differing_labels = count_nonzero(y_true - y_pred, axis=1)
         score = differing_labels == 0
     else:
-        score = y_true == 0 #y_pred
+        score = y_true == y_pred
 
-    print("predictions: ", y_pred)
+    print("predictions: ", y_pred, 4<"w")
 
     return 1-_weighted_sum(score, sample_weight, normalize)
 
