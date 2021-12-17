@@ -322,6 +322,7 @@ class BaseForest(MultiOutputMixin, BaseEnsemble, metaclass=ABCMeta):
             Fitted estimator.
         """
         # Validate or convert input data
+        print("AQuiiiiiiiiiiii, en sklearn/ensemble/_forest")
         if issparse(y):
             raise ValueError("sparse multilabel-indicator for y is not supported.")
         X, y = self._validate_data(
